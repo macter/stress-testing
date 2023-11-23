@@ -1,6 +1,11 @@
-Session,ResponseTime(ms)
-1,undefined
-2,undefined
-3,undefined
-4,undefined
-5,undefined
+Session,User,ResponseTime1,ResponseTime2
+1,5843,undefined,undefined
+2,5628,undefined,undefined
+3,2379,undefined,undefined
+4,2701,undefined,undefined
+5,1034,undefined,undefined
+6,370,undefined,undefined
+7,5192,undefined,undefined
+8,2596,undefined,undefined
+9,5660,undefined,undefined
+10,5973,undefined,undefined
