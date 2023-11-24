@@ -47,7 +47,7 @@ async function runStressTest() {
 
   const promises = Array.from({ length: SESSION_COUNT }, async (_, index) => {
     
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({ headless: 'new' });
     
     const page = await browser.newPage();
 
@@ -73,14 +73,14 @@ async function runStressTest() {
     
     await browser.close();
 
-    return { session: index + 1, responseTime1, responseTime2 };
+    return { session: index + 1, user: users[index][0],  responseTime1, responseTime2 };
   });
 
   const results = await Promise.all(promises);
  
 
   // Write response times to a CSV file
-  const csvContent = 'Session,ResponseTime(ms)\n' + results.map(result => `${result.session},${result.responseTime}`).join('\n');
+  const csvContent = 'Session,ResponseTime(ms)\n' + results.map(result => `${result.session},${result.user},${result.responseTime1},${result.responseTime2}`).join('\n');
   fs.writeFileSync(CSV_FILE_PATH, csvContent);
   console.log(`Response times saved to ${CSV_FILE_PATH}`);
 }
